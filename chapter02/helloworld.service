@@ -3,7 +3,7 @@ Description=Hello world system service
 
 [Service]
 WorkingDirectory=/home/ec2-user/
-ExecStart=/home/ec2-user/.nvm/versions/node/v4.4.5/bin/node /home/ec2-user/helloworld.js
+ExecStart=/usr/bin/node /home/ec2-user/helloworld.js
 
 [Install]
 WantedBy=multi-user.target
