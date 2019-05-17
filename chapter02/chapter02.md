@@ -25,23 +25,27 @@ $ aws ec2 describe-images --owners amazon --filters "Name=name,Values=amzn2-ami-
 
 ### 보안 그룹
 * VPC ID 확인
-$ aws ec2 describe-vpcs
+  > $ aws ec2 describe-vpcs
+
 * 보안 그룹 생성
-$ aws ec2 create-security-group \
-  --group-name HelloWorld \
-  --description "Hello World Demo" \
-  --vpc-id vpc-76f8081d
+  > $ aws ec2 create-security-group \
+  >   --group-name HelloWorld \
+  >   --description "Hello World Demo" \
+  >   --vpc-id vpc-76f8081d
+  
 * 인바운드 트래팩 열기
 $ aws ec2 authorize-security-group-ingress \
   --group-id sg-0f0558150e5b80a5c \
   --protocol tcp \
   --port 22 \
   --cidr 0.0.0.0/0
+  
 $ aws ec2 authorize-security-group-ingress \
   --group-id sg-0f0558150e5b80a5c \
   --protocol tcp \
   --port 3000 \
   --cidr 0.0.0.0/0
+  
 $ aws ec2 describe-security-groups \
   --group-id sg-0f0558150e5b80a5c \
   --output text
@@ -60,12 +64,14 @@ $ aws ec2 run-instances \
   --security-group-ids sg-0f0558150e5b80a5c \
   --image-id ami-047f7b46bd6dd5d84 \
   --subnet-id subnet-8403e1ef
+  
 $ aws ec2 describe-instance-status --instance-ids i-06c809c93cf320e42
 
 ### ssh를 이용해 ec2 인스턴스에 접속하기
 $ aws ec2 describe-instances \
   --instance-ids i-06c809c93cf320e42 \
   --query "Reservations[*].Instances[*].PublicIpAddress"
+  
 $ sudo ssh -i ~/.ssh/EffectiveDevOpsAWS.pem ec2-user@13.125.214.109
 
 ### 간단한 Hello World 웹 응용프로그램 생성하기
