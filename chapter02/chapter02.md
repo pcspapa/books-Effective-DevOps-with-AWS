@@ -1,10 +1,5 @@
 AWS
 
-AKIAZIM4R3UKYM57OSMY
-
-8LlTykQqTLpLMWe/tDU326Ioenmzn1moslDVvpjm
-
-
 # AWS 용어설명
 * IAM (Identity and Access Management)
 * AMI (Amazon Machine Image)
